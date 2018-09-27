@@ -1,0 +1,406 @@
+﻿<Window x:Class="AES_UI_V1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AES_UI_V1"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="674.59" Width="769.347">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style x:Key="NoStyleButton" TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Foreground" Value="Transparent" />
+                <Setter Property="SnapsToDevicePixels" Value="True" />
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                                <Grid>
+                                    <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                                </Grid>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Setter Property="Foreground" Value="Transparent" />
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Setter Property="Foreground" Value="Transparent" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+            <Style  x:Key="MyLabelStyle" TargetType="Label">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Label}">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" 
+            BorderThickness="{TemplateBinding BorderThickness}" 
+            Background="{TemplateBinding Background}" 
+            Padding="{TemplateBinding Padding}" 
+            SnapsToDevicePixels="true" 
+            CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="0,0,0,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="Images\metal_background.jpg"/>
+        </Grid.Background>
+        <!--IMAGES-->
+        <Image x:Name="AES_Switch_1" 
+               HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="317"
+               Source="Images\AES_Switch_1.png"
+               />
+        <Image x:Name="AES_Switch_2" 
+               Visibility="Collapsed" 
+               HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="317" 
+               Source="Images\AES_Switch_2.png"
+               />
+        <Image x:Name="ENG2_1" 
+               HorizontalAlignment="Left" Height="198" Margin="10,126,0,0" VerticalAlignment="Top" Width="317" 
+               Source="Images\ENG2_Switch_1.png"
+               />
+        <Image x:Name="ENG2_2" 
+               Visibility="Collapsed" 
+               HorizontalAlignment="Left" Height="198" Margin="10,126,0,0" VerticalAlignment="Top" Width="317" 
+               Source="Images\ENG2_Switch_2.png"
+               />
+        <Image x:Name="fan1" 
+               HorizontalAlignment="Left" Height="200" Margin="10,344,0,0" VerticalAlignment="Top" Width="317"  
+               gif:ImageBehavior.AutoStart="False" 
+               gif:ImageBehavior.AnimatedSource="Images\Moving_Fan_2.gif"
+               />
+        <Image x:Name="fan2" 
+               HorizontalAlignment="Left" Height="200" Margin="245,344,0,0" VerticalAlignment="Top" Width="317" 
+               gif:ImageBehavior.AutoStart="False" 
+               gif:ImageBehavior.AnimatedSource="Images\Moving_Fan_2.gif"
+               />
+        <Image x:Name="PS1_Mode1" 
+               HorizontalAlignment="Left" Height="59" Margin="531,375,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\PS_AUTO.png"
+               />
+        <Image x:Name="PS1_Mode2" 
+               HorizontalAlignment="Left" Height="59" Margin="531,375,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\PS_MANUAL_CONTROL.png"
+               Visibility="Collapsed" 
+               />
+        <Image x:Name="PS2_Mode1" 
+               HorizontalAlignment="Left" Height="59" Margin="638,375,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\PS_AUTO.png"
+               />
+        <Image x:Name="PS2_Mode2" 
+               HorizontalAlignment="Left" Height="59" Margin="638,375,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\PS_MANUAL_CONTROL.png"
+               Visibility="Collapsed"
+               />
+        <Image x:Name="PressLow1" 
+               HorizontalAlignment="Left" Height="59" Margin="531,451,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\PRESS_LOW.png"
+               />
+        <Image x:Name="PressHigh1" 
+               HorizontalAlignment="Left" Height="59" Margin="531,451,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\PRESS_HIGH.png"
+               Visibility="Collapsed"
+               />
+        <Image x:Name="PressLow2" 
+               HorizontalAlignment="Left" Height="59" Margin="638,451,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\PRESS_LOW.png"
+               />
+        <Image x:Name="PressHigh2" 
+               HorizontalAlignment="Left" Height="59" Margin="638,451,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\PRESS_HIGH.png"
+               Visibility="Collapsed"
+               />
+        <Image x:Name="Fuse1_On" 
+               HorizontalAlignment="Left" Height="59" Margin="146,559,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\FUSE_On.png"
+               />
+        <Image x:Name="Fuse2_On" 
+               HorizontalAlignment="Left" Height="59" Margin="383,559,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\FUSE_On.png"
+               />
+        <Image x:Name="Fuse1_Off" 
+               HorizontalAlignment="Left" Height="59" Margin="146,559,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\FUSE_Off.png"
+               Visibility="Collapsed"
+               />
+        <Image x:Name="Fuse2_Off" 
+               HorizontalAlignment="Left" Height="59" Margin="383,559,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\FUSE_Off.png"
+               Visibility="Collapsed"
+               />
+        <Image x:Name="A62HQ_CB" 
+               HorizontalAlignment="Left" Height="59" Margin="470,59,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\CB_28V_T.png"
+               />
+        <Image x:Name="A62HQ_CB_2" 
+               HorizontalAlignment="Left" Height="59" Margin="470,59,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\CB_28V_T2.png"
+               Visibility="Collapsed"
+               />
+        <Image x:Name="A63HQ_CB" 
+               HorizontalAlignment="Left" Height="59" Margin="530,59,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\CB_28V_T.png"
+               />
+        <Image x:Name="A63HQ_CB_2" 
+               HorizontalAlignment="Left" Height="59" Margin="530,59,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\CB_28V_T2.png"
+               Visibility="Collapsed"
+               />
+        <Image x:Name="A60HQ_CB" 
+               HorizontalAlignment="Left" Height="59" Margin="340,59,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\CB_115V_T.png"
+               />
+        <Image x:Name="A60HQ_CB_2" 
+               HorizontalAlignment="Left" Height="59" Margin="340,59,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\CB_115V_T2.png"
+               Visibility="Collapsed"
+               />
+        <Image x:Name="A61HQ_CB" 
+               HorizontalAlignment="Left" Height="59" Margin="400,59,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\CB_115V_T.png"
+               />
+        <Image x:Name="A61HQ_CB_2" 
+               HorizontalAlignment="Left" Height="59" Margin="400,59,0,0" VerticalAlignment="Top" Width="94" 
+               Source="Images\CB_115V_T2.png"
+               Visibility="Collapsed"
+               />
+        <!--BUTTONS-->
+        <Button x:Name="button_ENG2" 
+                Content="Button" 
+                Style="{StaticResource NoStyleButton}" 
+                HorizontalAlignment="Left" Margin="220,150,0,0" VerticalAlignment="Top" Width="54" Height="90"
+                Click="ENG2_Click" 
+                ClickMode="Press"
+                />
+        <Button x:Name="button_AES" 
+                Content="Button" 
+                Style="{StaticResource NoStyleButton}"
+                HorizontalAlignment="Left" Margin="58,50,0,0" VerticalAlignment="Top" Width="44" Height="43" 
+                Click="AES_Click" 
+                ClickMode="Press"
+                />
+        <Button x:Name="button_PS1_Mode" 
+                Content="Button" 
+                Style="{StaticResource NoStyleButton}"
+                HorizontalAlignment="Left" Margin="531,375,0,0" VerticalAlignment="Top" Width="58" Height="59" 
+                Click="PS1_Mode_Click" 
+                ClickMode="Press"
+                />
+        <Button x:Name="button_PS2_Mode" 
+                Content="Button" 
+                Style="{StaticResource NoStyleButton}"
+                HorizontalAlignment="Left" Margin="638,375,0,0" VerticalAlignment="Top" Width="58" Height="59" 
+                Click="PS2_Mode_Click" 
+                ClickMode="Press"
+                />
+        <Button x:Name="button_PS1_H_L" 
+                Content="Button" 
+                Style="{StaticResource NoStyleButton}"
+                HorizontalAlignment="Left" Margin="531,451,0,0" VerticalAlignment="Top" Width="58" Height="59" 
+                Click="PS1_H_L_Click" 
+                ClickMode="Press"
+                />
+        <Button x:Name="button_PS2_H_L" 
+                Content="Button" 
+                Style="{StaticResource NoStyleButton}"
+                HorizontalAlignment="Left" Margin="638,451,0,0" VerticalAlignment="Top" Width="58" Height="59" 
+                Click="PS2_H_L_Click" 
+                ClickMode="Press"
+                />
+        <Button x:Name="button_Fuse_Fan1" 
+                Content="Fuse FAN1" 
+                HorizontalAlignment="Left" Margin="50,560,0,0" VerticalAlignment="Top" Width="70" Height="59" 
+                Click="Fuse_Fan1_Click" 
+                ClickMode="Press"
+                />
+        <Button x:Name="button_Fuse_Fan2" 
+                Content="Fuse FAN2" 
+                HorizontalAlignment="Left" Margin="280,560,0,0" VerticalAlignment="Top" Width="70" Height="59" 
+                Click="Fuse_Fan2_Click" 
+                ClickMode="Press"
+                />
+        <Button x:Name="A60HQ_button" 
+                Content="Button" 
+                Style="{StaticResource NoStyleButton}"
+                HorizontalAlignment="Left" Margin="350,70,0,0" VerticalAlignment="Top" Width="40" Height="40"
+                Click="A60HQ_button_Click" 
+                ClickMode="Press"
+                />
+        <Button x:Name="A61HQ_button" 
+                Content="Button" 
+                Style="{StaticResource NoStyleButton}"
+                HorizontalAlignment="Left" Margin="410,70,0,0" VerticalAlignment="Top" Width="40" Height="40"
+                Click="A61HQ_button_Click" 
+                ClickMode="Press"
+                />
+        <Button x:Name="A62HQ_button" 
+                Content="Button" 
+                Style="{StaticResource NoStyleButton}"
+                HorizontalAlignment="Left" Margin="480,70,0,0" VerticalAlignment="Top" Width="40" Height="40"
+                Click="A62HQ_button_Click" 
+                ClickMode="Press"
+                />
+        <Button x:Name="A63HQ_button" 
+                Content="Button" 
+                Style="{StaticResource NoStyleButton}"
+                HorizontalAlignment="Left" Margin="540,70,0,0" VerticalAlignment="Top" Width="40" Height="40"
+                Click="A63HQ_button_Click" 
+                ClickMode="Press"
+                />
+        <!--LABELS-->
+        <Label x:Name="A66HQ" 
+               Content="A66HQ" 
+               HorizontalAlignment="Left" Margin="600,40,0,0" VerticalAlignment="Top" 
+               Background="Red" 
+               Style="{StaticResource MyLabelStyle}" 
+               BorderBrush="#FF535353" BorderThickness="5"
+               />
+        <Label x:Name="ENG2" 
+               Content="ENG 2 " 
+               HorizontalAlignment="Left" Margin="680,40,0,0" VerticalAlignment="Top" 
+               Background="Red" 
+               Style="{StaticResource MyLabelStyle}"
+               BorderBrush="#FF535353" BorderThickness="5"
+               />
+        <Label x:Name="A52HQ" 
+               Content="A52HQ" 
+               HorizontalAlignment="Left" Margin="600,80,0,0" VerticalAlignment="Top" 
+               Background="Red" 
+               Style="{StaticResource MyLabelStyle}"
+               BorderBrush="#FF535353" BorderThickness="5"
+               />
+        <Label x:Name="A53HQ" 
+               Content="A53HQ" 
+               HorizontalAlignment="Left" Margin="680,80,0,0" VerticalAlignment="Top" 
+               Background="Red" 
+               Style="{StaticResource MyLabelStyle}"
+               BorderBrush="#FF535353" BorderThickness="5"
+               />
+        <Label x:Name="A54HQ" 
+               Content="A54HQ" 
+               HorizontalAlignment="Left" Margin="600,120,0,0" VerticalAlignment="Top" 
+               Background="Red" 
+               Style="{StaticResource MyLabelStyle}"
+               BorderBrush="#FF535353" BorderThickness="5"
+               />
+        <Label x:Name="A55HQ" 
+               Content="A55HQ" 
+               HorizontalAlignment="Left" Margin="680,120,0,0" VerticalAlignment="Top" 
+               Background="Red" 
+               Style="{StaticResource MyLabelStyle}"
+               BorderBrush="#FF535353" BorderThickness="5"
+               />
+        <Label x:Name="A50HQ" 
+               Content="A50HQ" 
+               HorizontalAlignment="Left" Margin="600,160,0,0" VerticalAlignment="Top" 
+               Background="Red" 
+               Style="{StaticResource MyLabelStyle}"
+               BorderBrush="#FF535353" BorderThickness="5"
+               />
+        <Label x:Name="A51HQ" 
+               Content="A51HQ" 
+               HorizontalAlignment="Left" Margin="680,160,0,0" VerticalAlignment="Top" 
+               Background="Red" 
+               Style="{StaticResource MyLabelStyle}"
+               BorderBrush="#FF535353" BorderThickness="5"
+               />
+        <Label x:Name="A64HQ" 
+               Content="A64HQ" 
+               HorizontalAlignment="Left" Margin="600,200,0,0" VerticalAlignment="Top" 
+               Background="Red" 
+               Style="{StaticResource MyLabelStyle}"
+               BorderBrush="#FF535353" BorderThickness="5"
+               />
+        <Label x:Name="A65HQ" 
+               Content="A65HQ" 
+               HorizontalAlignment="Left" Margin="680,200,0,0" VerticalAlignment="Top" 
+               Background="Red" 
+               Style="{StaticResource MyLabelStyle}"
+               BorderBrush="#FF535353" BorderThickness="5"
+               />
+        <Label x:Name="A56HQ" 
+               Content="A56HQ" 
+               HorizontalAlignment="Left" Margin="600,240,0,0" VerticalAlignment="Top" 
+               Background="Red" 
+               Style="{StaticResource MyLabelStyle}"
+               BorderBrush="#FF535353" BorderThickness="5"
+               />
+        <Label x:Name="A57HQ" 
+               Content="A57HQ" 
+               HorizontalAlignment="Left" Margin="680,240,0,0" VerticalAlignment="Top" 
+               Background="Red" 
+               Style="{StaticResource MyLabelStyle}"
+               BorderBrush="#FF535353" BorderThickness="5"
+               />
+        <Label x:Name="label_RELAYS" 
+               Content="RELAYS" 
+               HorizontalAlignment="Left" Margin="645,10,0,0" VerticalAlignment="Top" 
+               FontWeight="Bold"
+               />
+        <Label x:Name="label_PS1" 
+               Content="PRESSURE SWITCH 1" 
+               HorizontalAlignment="Left" Margin="505,350,0,0" VerticalAlignment="Top" 
+               FontWeight="Bold" FontSize="10" 
+               Background="#FFB8B8B8"
+               />
+        <Label x:Name="label_PS2" 
+               Content="PRESSURE SWITCH 2" 
+               HorizontalAlignment="Left" Margin="620,350,0,0" VerticalAlignment="Top" 
+               FontWeight="Bold" FontSize="10"
+               Background="#FFB8B8B8"
+               />
+        <Label x:Name="label_FAN1" 
+               Content="FAN 1" 
+               HorizontalAlignment="Left" Margin="90,320,0,0" VerticalAlignment="Top" 
+               FontWeight="Bold" FontSize="10"
+               Background="#FFB8B8B8"
+               />
+        <Label x:Name="label_FAN2" 
+               Content="FAN 2" 
+               HorizontalAlignment="Left" Margin="325,320,0,0" VerticalAlignment="Top" 
+               FontWeight="Bold" FontSize="10"
+               Background="#FFB8B8B8"
+               />
+        <TextBox x:Name="textBox1" 
+                 HorizontalAlignment="Left" Height="23" Margin="406,217,0,0" VerticalAlignment="Top" Width="120"
+                 TextWrapping="Wrap" 
+                 Text=" "  
+                 Foreground="White" 
+                 Background="Black"
+                 />
+        <TextBox x:Name="textBox2" 
+                 HorizontalAlignment="Left" Height="23" Margin="406,260,0,0" VerticalAlignment="Top" Width="120"
+                 TextWrapping="Wrap" 
+                 Text=" "  
+                 Background="Black" 
+                 Foreground="White"
+                 />
+        
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,7 @@
+D:\VisualStudio\UDP_Projects\UDP_Server_Client\UDP_Server_Client\bin\Debug\UDP_Server_Client.exe.config
+D:\VisualStudio\UDP_Projects\UDP_Server_Client\UDP_Server_Client\bin\Debug\UDP_Server_Client.exe
+D:\VisualStudio\UDP_Projects\UDP_Server_Client\UDP_Server_Client\bin\Debug\UDP_Server_Client.pdb
+D:\VisualStudio\UDP_Projects\UDP_Server_Client\UDP_Server_Client\obj\Debug\UDP_Server_Client.csprojAssemblyReference.cache
+D:\VisualStudio\UDP_Projects\UDP_Server_Client\UDP_Server_Client\obj\Debug\UDP_Server_Client.csproj.CoreCompileInputs.cache
+D:\VisualStudio\UDP_Projects\UDP_Server_Client\UDP_Server_Client\obj\Debug\UDP_Server_Client.exe
+D:\VisualStudio\UDP_Projects\UDP_Server_Client\UDP_Server_Client\obj\Debug\UDP_Server_Client.pdb

@@ -1,0 +1,13 @@
+c:\users\u61336\documents\visual studio 2015\Projects\AES_UI_V1\AES_UI_V1\bin\Release\AES_UI_V1.exe.config
+c:\users\u61336\documents\visual studio 2015\Projects\AES_UI_V1\AES_UI_V1\bin\Release\AES_UI_V1.exe
+c:\users\u61336\documents\visual studio 2015\Projects\AES_UI_V1\AES_UI_V1\bin\Release\AES_UI_V1.pdb
+c:\users\u61336\documents\visual studio 2015\Projects\AES_UI_V1\AES_UI_V1\obj\Release\MainWindow.g.cs
+c:\users\u61336\documents\visual studio 2015\Projects\AES_UI_V1\AES_UI_V1\obj\Release\App.g.cs
+c:\users\u61336\documents\visual studio 2015\Projects\AES_UI_V1\AES_UI_V1\obj\Release\AES_UI_V1_MarkupCompile.cache
+c:\users\u61336\documents\visual studio 2015\Projects\AES_UI_V1\AES_UI_V1\obj\Release\AES_UI_V1_MarkupCompile.lref
+c:\users\u61336\documents\visual studio 2015\Projects\AES_UI_V1\AES_UI_V1\obj\Release\MainWindow.baml
+c:\users\u61336\documents\visual studio 2015\Projects\AES_UI_V1\AES_UI_V1\obj\Release\AES_UI_V1.g.resources
+c:\users\u61336\documents\visual studio 2015\Projects\AES_UI_V1\AES_UI_V1\obj\Release\AES_UI_V1.Properties.Resources.resources
+c:\users\u61336\documents\visual studio 2015\Projects\AES_UI_V1\AES_UI_V1\obj\Release\AES_UI_V1.csproj.GenerateResource.Cache
+c:\users\u61336\documents\visual studio 2015\Projects\AES_UI_V1\AES_UI_V1\obj\Release\AES_UI_V1.exe
+c:\users\u61336\documents\visual studio 2015\Projects\AES_UI_V1\AES_UI_V1\obj\Release\AES_UI_V1.pdb
